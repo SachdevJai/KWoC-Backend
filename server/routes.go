@@ -51,5 +51,11 @@ func getRoutes(app *middleware.App) []Route {
 			"/healthcheck/ping/",
 			controllers.Ping,
 		},
+		{
+			"Update Project Details",
+			"PUT",
+			"/project/update/",
+			middleware.WithLogin(middleware.WrapApp(app, controllers.UpdateProject)),
+		},
 	}
 }
